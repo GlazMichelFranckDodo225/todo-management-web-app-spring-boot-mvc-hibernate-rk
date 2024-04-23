@@ -1,5 +1,7 @@
 package com.dgmf.controller;
 
+import com.dgmf.service.AuthenticationService;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -9,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequiredArgsConstructor
 public class LoginController {
+    private final AuthenticationService authenticationService;
+
     // To Handle GET Request
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String goToLoginPage() {
@@ -25,6 +30,14 @@ public class LoginController {
         modelMap.put("name", name);
         modelMap.put("password", password);
 
-        return "welcome";
+        if(authenticationService.authenticate(name, password)) {
+            // Authentication
+            // Name ==> John Doe | Password ==> dummy
+            return "welcome";
+        }
+
+        modelMap.put("errorMessage", "Invalid Credentials. Please Try Again.");
+
+        return "login";
     }
 }
