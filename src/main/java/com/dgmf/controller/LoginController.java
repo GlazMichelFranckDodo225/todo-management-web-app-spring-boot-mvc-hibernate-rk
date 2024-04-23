@@ -10,11 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class LoginController {
     @RequestMapping("/login")
-    public String goToLoginPage(
-            @RequestParam String name, ModelMap modelMap
-    ) {
-        modelMap.put("name", name);
-
+    public String goToLoginPage() {
         return "login";
     }
 }
