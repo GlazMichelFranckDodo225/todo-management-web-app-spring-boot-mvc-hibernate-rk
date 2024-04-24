@@ -5,11 +5,12 @@ import com.dgmf.service.TodoService;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class TodoServiceImpl implements TodoService {
-    private static List<Todo> todos;
+    private static List<Todo> todos = new ArrayList<>();
     static {
         todos.add(
                 Todo.builder()
