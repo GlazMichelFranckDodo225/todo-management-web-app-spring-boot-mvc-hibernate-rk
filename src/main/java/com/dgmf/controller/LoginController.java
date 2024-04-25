@@ -2,16 +2,18 @@ package com.dgmf.controller;
 
 import com.dgmf.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
 @RequiredArgsConstructor
+// To keep "name" Attribute available along all the Session
+// into the LoginController
+@SessionAttributes("name")
 public class LoginController {
     private final AuthenticationService authenticationService;
 

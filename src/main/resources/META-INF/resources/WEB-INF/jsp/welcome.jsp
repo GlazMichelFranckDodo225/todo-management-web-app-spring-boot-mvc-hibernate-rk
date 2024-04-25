@@ -6,8 +6,8 @@
     <title>Welcome Page</title>
 </head>
 <body>
-    <h1>Welcome to Todo Management Web App</h1>
+    <h1>Welcome Page</h1>
     <div>Your Name : ${name}</div>
-    <div>Your Password : ${password}</div>
+    <div><a href="/list-todos">Manage</a> your Todos</div>
 </body>
 </html>
